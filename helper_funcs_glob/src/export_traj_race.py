@@ -56,9 +56,10 @@ def export_traj_race_f110(file_paths: dict,
     """
 
     # export race trajectory
-    fmt = "%.7f,%.7f,%.7f"
+    header = "s_m; x_m; y_m; psi_rad; kappa_radpm; vx_mps; ax_mps2"
+    fmt = "%.7f; %.7f; %.7f; %.7f; %.7f; %.7f; %.7f"
     with open(file_paths["traj_race_export"], 'ab') as fh:
-        np.savetxt(fh, traj_race[:, [1,2,5]], fmt=fmt, comments='')
+        np.savetxt(fh, traj_race, fmt=fmt, header=header)
 
 # testing --------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
